@@ -10,6 +10,7 @@
                     <th>Age</th>
                     <th>Address</th>
                     <th>Books</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,7 @@
                     <td>{{ author.age }}</td>
                     <td>{{ author.address }}</td>
                     <td>{{ author.books_count }}</td>
+                    <td><router-link :to="{name: 'author', params: { id: author.id }}">Show data</router-link></td>
                 </tr>
             </tbody>
         </table>
