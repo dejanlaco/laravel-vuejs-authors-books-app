@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('books', 'BookController@index');
 Route::get('authors', 'AuthorController@index');
+Route::group(['prefix' => 'author'], function () {
+    Route::get('{id}', 'AuthorController@show');
+});

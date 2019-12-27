@@ -45,9 +45,10 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function show(Author $author)
+    public function show($id)
     {
-        //
+        $author = Author::find($id)->load('books');
+        return response()->json($author);
     }
 
     /**
