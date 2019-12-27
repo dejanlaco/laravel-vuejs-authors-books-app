@@ -14,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::all('id','name','age','address')->toArray();
+        $authors = Author::withCount('books')->get()->toArray();
         return array_reverse($authors);
     }
 

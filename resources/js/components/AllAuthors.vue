@@ -18,7 +18,7 @@
                     <td>{{ author.name }}</td>
                     <td>{{ author.age }}</td>
                     <td>{{ author.address }}</td>
-                    <td>0</td>
+                    <td>{{ author.books_count }}</td>
                 </tr>
             </tbody>
         </table>
