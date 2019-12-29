@@ -22,3 +22,6 @@ Route::get('authors', 'AuthorController@index');
 Route::group(['prefix' => 'author'], function () {
     Route::get('{id}', 'AuthorController@show');
 });
+Route::group(['prefix' => 'book'], function() {
+	Route::post('add', 'BookController@store');
+});

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -36,7 +37,19 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $author = new Author();
+        $author->name = $request->input('author_name');
+        $author->age = $request->input('author_age');
+        $author->address = $request->input('author_address');
+        $author->save();
+
+        $book = new Book();
+        $book->name = $request->input('book_name');
+        $book->release_date = $request->input('book_release_date');
+        $book->author()->associate($author);
+        $book->save();
+
+        return response()->json('The book successfully added');
     }
 
     /**
