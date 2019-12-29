@@ -24,4 +24,5 @@ Route::group(['prefix' => 'author'], function () {
 });
 Route::group(['prefix' => 'book'], function() {
 	Route::post('add', 'BookController@store');
+	Route::delete('delete/{id}', 'BookController@destroy');
 });
