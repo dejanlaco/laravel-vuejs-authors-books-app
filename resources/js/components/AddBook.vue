@@ -36,6 +36,9 @@
         methods: {
             addBook() {
 
+                if( this.isNotValid() )
+                    return false;
+
                 this.axios
                     .post('/api/book/add', this.fields)
                     .then(response => (
@@ -49,6 +52,28 @@
                         console.log(error.response);
                     })
                     .finally(() => this.loading = false)
+            },
+
+            isNotValid() {
+                this.errors = [];
+
+                if( !this.fields.author_name )
+                    this.errors.push('The author name field is required.');
+
+                if( !this.fields.author_age || isNaN(this.fields.author_age) )
+                    this.errors.push('The author age must be a number.');
+
+                if( !this.fields.author_address )
+                    this.errors.push('The author address field is required.');
+
+                if( !this.fields.book_name )
+                    this.errors.push('The book name field is required.');
+
+                if( !this.fields.book_release_date )
+                    this.errors.push('The book release date field is required.');
+
+                if( this.errors.length )
+                    return true;
             }
         }
     }
