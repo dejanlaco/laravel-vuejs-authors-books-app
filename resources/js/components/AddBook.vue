@@ -1,24 +1,39 @@
 <template>
-    <div>
+    <div class="container mt-3">
         <h3>Add Book</h3>
 
-        <p v-if="errors">
+        <p v-if="errors" class="alert alert-danger">
             <b>Please correct the following errors:</b>
             <ul>
                 <li v-for="error in errors">{{ error }}</li>
             </ul>
         </p>
 
-        <form @submit.prevent="addBook">
+        <form @submit.prevent="addBook" class="mt-4">
 
-            <input type="text" v-model="fields.author_name">
-            <input type="text" v-model="fields.author_age">
-            <input type="text" v-model="fields.author_address">
+            <div class="form-group">
+                <label for="author_name">Author name:</label>
+                <input type="text" class="form-control" id="author_name" v-model="fields.author_name">
+            </div>
+            <div class="form-group">
+                <label for="author_age">Author age:</label>
+                <input type="text" class="form-control" id="author_age" v-model="fields.author_age">
+            </div>
+            <div class="form-group">
+                <label for="author_address">Author address:</label>
+                <input type="text" class="form-control" id="author_address" v-model="fields.author_address">
+            </div>
 
-            <input type="text" v-model="fields.book_name">
-            <input type="text" v-model="fields.book_release_date">
+            <div class="form-group">
+                <label for="book_name">Book name:</label>
+                <input type="text" class="form-control" id="book_name" v-model="fields.book_name">
+            </div>
+            <div class="form-group">
+                <label for="book_release_date">Book release date:</label>
+                <input type="text" class="form-control" id="book_release_date" v-model="fields.book_release_date">
+            </div>
 
-            <button type="submit">Add Book</button>
+            <button type="submit" class="btn btn-primary">Add Book</button>
 
         </form>
 

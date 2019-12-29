@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div class="container mt-4">
         <h3>All Books</h3>
 
-        <table>
+        <table class="table table-sm mt-4">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Book name</th>
                     <th>Author</th>
                     <th>Release date</th>
-                    <th>Action</th>
+                    <th class="text-right">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,7 +18,7 @@
                     <td>{{ book.name }}</td>
                     <td>{{ book.author.name }}</td>
                     <td>{{ book.release_date }}</td>
-                    <td><button @click="deleteBook(book.id)">Delete</button></td>
+                    <td class="text-right"><button @click="deleteBook(book.id)" class="btn btn-sm btn-outline-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>

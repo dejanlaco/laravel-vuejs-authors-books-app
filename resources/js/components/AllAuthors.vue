@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="container mt-4">
         <h3>All Authors</h3>
 
-        <table>
+        <table class="table table-sm mt-4">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -10,7 +10,7 @@
                     <th>Age</th>
                     <th>Address</th>
                     <th>Books</th>
-                    <th>Actions</th>
+                    <th class="text-right">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +20,7 @@
                     <td>{{ author.age }}</td>
                     <td>{{ author.address }}</td>
                     <td>{{ author.books_count }}</td>
-                    <td><router-link :to="{name: 'author', params: { id: author.id }}">Show data</router-link></td>
+                    <td class="text-right"><router-link :to="{name: 'author', params: { id: author.id }}" class="btn btn-sm btn-outline-primary">Show data</router-link></td>
                 </tr>
             </tbody>
         </table>
