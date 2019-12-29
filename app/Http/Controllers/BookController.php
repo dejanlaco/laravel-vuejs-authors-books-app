@@ -37,6 +37,14 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'author_name' => 'required',
+            'author_age' => 'required|numeric',
+            'author_address' => 'required',
+            'book_name' => 'required',
+            'book_release_date' => 'required|date_format:Y-m-d'
+        ]);
+
         $author = new Author();
         $author->name = $request->input('author_name');
         $author->age = $request->input('author_age');
