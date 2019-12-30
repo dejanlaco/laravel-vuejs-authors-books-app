@@ -1,2 +1,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.form-control.vdp-datepicker {
+	padding: 0;
+}
+.form-control.vdp-datepicker input[type=text] {
+	border: 0;
+	width: 100%;
+    padding: 0.375rem 0.75rem;
+    background: transparent;
+}

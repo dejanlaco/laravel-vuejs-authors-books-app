@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-3">
+    <div class="container mt-4">
         <h3>Add Book</h3>
 
         <p v-if="errors" class="alert alert-danger">
@@ -11,26 +11,33 @@
 
         <form @submit.prevent="addBook" class="mt-4">
 
-            <div class="form-group">
-                <label for="author_name">Author name:</label>
-                <input type="text" class="form-control" id="author_name" v-model="fields.author_name">
-            </div>
-            <div class="form-group">
-                <label for="author_age">Author age:</label>
-                <input type="text" class="form-control" id="author_age" v-model="fields.author_age">
-            </div>
-            <div class="form-group">
-                <label for="author_address">Author address:</label>
-                <input type="text" class="form-control" id="author_address" v-model="fields.author_address">
+            <div class="form-row">
+                <div class="col-6 mb-3">
+                    <label for="author_name">Author name</label>
+                    <input type="text" class="form-control" id="author_name" v-model="fields.author_name" placeholder="Name">
+                </div>
+
+                <div class="col-2 mb-3">
+                    <label for="author_age">Author age</label>
+                    <input type="text" class="form-control" id="author_age" v-model="fields.author_age" placeholder="Age">
+                </div>
+
+                <div class="col-4 mb-3">
+                    <label for="author_address">Author address</label>
+                    <input type="text" class="form-control" id="author_address" v-model="fields.author_address" placeholder="Address">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="book_name">Book name:</label>
-                <input type="text" class="form-control" id="book_name" v-model="fields.book_name">
-            </div>
-            <div class="form-group">
-                <label for="book_release_date">Book release date:</label>
-                <datepicker v-model="fields.book_release_date"></datepicker>
+            <div class="form-row">
+                <div class="col-6 mb-3">
+                    <label for="book_name">Book name</label>
+                    <input type="text" class="form-control" id="book_name" v-model="fields.book_name" placeholder="Book name">
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label for="book_release_date">Book release date</label>
+                    <datepicker v-model="fields.book_release_date" class="form-control" placeholder="Release date"></datepicker>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Add Book</button>
