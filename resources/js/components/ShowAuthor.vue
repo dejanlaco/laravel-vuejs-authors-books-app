@@ -1,7 +1,9 @@
 <template>
-    <div class="container mt-3">
+    <div class="container mt-4">
 
-        <table>
+        <h3>Author details:</h3>
+
+        <table class="table table-sm mt-4">
           <tr>
             <th>Name:</th>
             <td>{{ author.name }}</td>
@@ -16,28 +18,24 @@
           </tr>
         </table>
 
-        <h3>All Books from this author</h3>
+        <h3 class="mt-5">All Books from this author:</h3>
 
-        <table>
+        <table class="table table-sm mt-4">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Book name</th>
-                    <th>Author</th>
-                    <th>Release date</th>
+                    <th class="text-right">Release date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>a</td>
-                    <td>b</td>
-                    <td>c</td>
-                    <td>d</td>
+                <tr v-for="book in author.books" :key="book.id">
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.name }}</td>
+                    <td class="text-right">{{ book.release_date }}</td>
                 </tr>
             </tbody>
         </table>
-
-        {{ author.books }}
 
     </div>
 </template>
