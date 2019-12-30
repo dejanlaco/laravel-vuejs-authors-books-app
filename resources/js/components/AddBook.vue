@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label for="book_release_date">Book release date:</label>
-                <input type="text" class="form-control" id="book_release_date" v-model="fields.book_release_date">
+                <datepicker v-model="fields.book_release_date"></datepicker>
             </div>
 
             <button type="submit" class="btn btn-primary">Add Book</button>
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+    import Datepicker from 'vuejs-datepicker'
+
     export default {
         data() {
             return {
@@ -90,6 +92,9 @@
                 if( this.errors.length )
                     return true;
             }
+        },
+        components: {
+            Datepicker
         }
     }
 </script>

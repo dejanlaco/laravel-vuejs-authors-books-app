@@ -42,7 +42,7 @@ class BookController extends Controller
             'author_age' => 'required|numeric',
             'author_address' => 'required',
             'book_name' => 'required',
-            'book_release_date' => 'required|date_format:Y-m-d'
+            'book_release_date' => 'required|date'
         ]);
 
         $author = new Author();
@@ -53,7 +53,7 @@ class BookController extends Controller
 
         $book = new Book();
         $book->name = $request->input('book_name');
-        $book->release_date = $request->input('book_release_date');
+        $book->release_date = date('Y-m-d', strtotime($request->input('book_release_date')));
         $book->author()->associate($author);
         $book->save();
 
